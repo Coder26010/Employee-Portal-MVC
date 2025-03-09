@@ -1,0 +1,38 @@
+﻿@model  Employee_Portal_MVC.ModelEntity.DepartmentEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <table>
+                <tr>
+                    <th>Department Code</th>
+                    <td>
+                        @Html.TextBoxFor(x => x.DepartmentCode)
+                    </td>
+                </tr>
+                <tr>
+                    <th>Department Name</th>
+                    <td>
+                        @Html.TextBoxFor(x => x.DepartmentName)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
