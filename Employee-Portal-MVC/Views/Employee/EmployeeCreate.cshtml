@@ -1,0 +1,48 @@
+﻿@model  Employee_Portal_MVC.Models.EmployeeModel
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Employee</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        @*<input type="text" name="EmpName" id="EmpName" />*@
+                        @*@Html.TextBox("Name")*@
+                        @Html.TextBoxFor(x => x.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>
+                        @*<input type="text" name="EmailAddress" id="EmailAddress" />*@
+                        @*@Html.TextBox("Email")*@
+                        @Html.TextBoxFor(x => x.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        @*Male <input type="radio" name="Gender" id="Gender" group="rdbGender" value="M" />
+                            Female <input type="radio" name="Gender" id="Gender" group="rdbGender" value="F" />*@
+
+                        @*Male @Html.RadioButton("Gender", "M", false, new { group = "rdbGender" })
+                            Female @Html.RadioButton("Gender", "F", false, new { group = "rdbGender" })*@
+                        Male @Html.RadioButtonFor(x => x.Gender, "M", new { group = "rdbGender" })
+                        Female @Html.RadioButtonFor(x => x.Gender, "F", new { group = "rdbGender" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
