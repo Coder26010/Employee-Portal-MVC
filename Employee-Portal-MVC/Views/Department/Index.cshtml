@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Employee_Portal_MVC.ModelEntity.DepartmentEntity> 
+﻿@model IEnumerable<Employee_Portal_MVC.ModelEntity.DepartmentEntity>
 @{
     Layout = null;
 }
@@ -12,7 +12,7 @@
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid mb-5"> 
+    <div class="container-fluid mb-5">
         <div class="row mt-5">
             <div class="col-8 offset-2">
 
@@ -47,7 +47,16 @@
                                             @item.DepartmentName
                                         </td>
                                         <td>
-                                            Edit | Remove
+                                            <div class="btn-group">
+                                                @using (Html.BeginForm("Delete","Department",new {id = item.Id},FormMethod.Post))
+                                                {
+                                                    <a href="/Department/Edit/@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                                                    @*<a href="/Department/Remove" class="btn btn-danger btn-sm">Remove</a>*@
+                                                    <input type="submit" value="Remove" class="btn btn-danger btn-sm" 
+                                                           onclick="return confirm('Are you sure? This record will be permanently deleted from system.')"/>
+                                                }
+
+                                            </div>
                                         </td>
                                     </tr>
                                 }
@@ -56,10 +65,10 @@
                     </div>
                 </div>
 
-               
+
             </div>
         </div>
-       
+
     </div>
 </body>
 </html>

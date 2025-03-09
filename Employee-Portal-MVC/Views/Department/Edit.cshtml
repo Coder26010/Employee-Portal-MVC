@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Edit</title>
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
@@ -22,11 +22,11 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-8">
-                                <h3>Add New Record</h3>
+                                <h3>List Of Departments</h3>
                             </div>
                             <div class="col-4">
                                 <div class="d-flex">
-                                    <a href="/Department/Index" class="btn btn-primary ms-auto">Back to List</a>
+                                    <a href="/Department/Create" class="btn btn-primary ms-auto">Add New</a>
                                 </div>
                             </div>
                         </div>
@@ -38,13 +38,13 @@
                                 <tr>
                                     <th>Department Code</th>
                                     <td>
-                                        @Html.TextBoxFor(x => x.DepartmentCode)
+                                        @Html.TextBoxFor(x => Model.DepartmentCode)
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Department Name</th>
                                     <td>
-                                        @Html.TextBoxFor(x => x.DepartmentName)
+                                        @Html.TextBoxFor(x => Model.DepartmentName)
                                     </td>
                                 </tr>
                                 <tr>
@@ -61,7 +61,6 @@
                             <h4 class="text-danger fw-bold">@ViewBag.Message</h4>
                         </div>
                     }
-
                 </div>
 
 
