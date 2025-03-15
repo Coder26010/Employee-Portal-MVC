@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Employee_Portal_MVC.Controllers
 {
-    public class DepartmentController : Controller
+    public class DepartmentController : BaseController
     {
         private readonly EmployeeContext _employeeContext;
 
@@ -42,9 +43,27 @@ namespace Employee_Portal_MVC.Controllers
                 _employeeContext.Departments.Add(entity);
                 _employeeContext.SaveChanges();
                 ModelState.Clear();
+                string AlertMessage = "Record saved with department code " + entity.DepartmentCode + " successfully!";
+                //TempData["Message"] = AlertMessage;
+                //Serelize
+                //TempData["Message"] = new JavaScriptSerializer().Serialize(new
+                //{
+                //    Title = "Record Saved",
+                //    Type = "success",
+                //    Message = AlertMessage
+                //});
+                ShowAlert(AlertType.success, "Record Saved", AlertMessage);
+               
+
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Message = ErrorMessage;
+            //TempData["Message"] = new JavaScriptSerializer().Serialize(new
+            //{
+            //    Title = "Record Saved",
+            //    Type = "error",
+            //    Message = ErrorMessage
+            //});
+            ShowAlert(AlertType.error, "Already Exists", ErrorMessage);
             return View(entity);
         }
 
@@ -75,6 +94,7 @@ namespace Employee_Portal_MVC.Controllers
                     department.DepartmentName = entity.DepartmentName;
                     department.DepartmentCode = entity.DepartmentCode;
                     _employeeContext.SaveChanges();
+                    ShowAlert(AlertType.success, "Record Updated","Record updated for the department code " + entity.DepartmentCode);
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -83,7 +103,8 @@ namespace Employee_Portal_MVC.Controllers
                 ErrorMessage = "Record Not Found!";
             }
 
-            ViewBag.Message = ErrorMessage;
+            //ViewBag.Message = ErrorMessage;
+            ShowAlert(AlertType.error, "Not Found", ErrorMessage);
             return View(entity);
         }
 
@@ -95,6 +116,7 @@ namespace Employee_Portal_MVC.Controllers
             {
                 _employeeContext.Departments.Remove(department);
                 _employeeContext.SaveChanges();
+                ShowAlert(AlertType.success, "Record Deleted", "Record with department code " + department.DepartmentCode + " deleted permanenetly");
             }
             return RedirectToAction(nameof(Index));
         }
