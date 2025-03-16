@@ -13,7 +13,7 @@ namespace Employee_Portal_MVC.Controllers
     }
     public class BaseController : Controller
     {
-        // GET: Base
+        
        public void ShowAlert(AlertType alertType,string title,string message)
         {
             TempData["Message"] = new JavaScriptSerializer().Serialize(new
