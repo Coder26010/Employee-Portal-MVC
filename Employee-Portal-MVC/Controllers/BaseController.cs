@@ -9,7 +9,7 @@ namespace Employee_Portal_MVC.Controllers
 {
     public enum AlertType
     {
-        success,error,warrning,info
+        success,error,warning,info
     }
     public class BaseController : Controller
     {

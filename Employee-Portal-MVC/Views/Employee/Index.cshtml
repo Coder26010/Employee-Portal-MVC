@@ -1,0 +1,86 @@
+﻿
+@model IEnumerable<Employee_Portal_MVC.ModelEntity.EmployeeEntity>
+
+@*@{
+        Layout = "~/Views/Shared/_MainLayout.cshtml";
+    }*@
+
+<div class="container-fluid mb-5">
+    <div class="row mt-5">
+        <div class="col-8 offset-2">
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h3>List Of Employees</h3>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex">
+                                <a href="/Employee/Create" class="btn btn-primary ms-auto">Add New</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Emp Id</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.FullName</td>
+                                        <td>@item.Gender</td>
+                                        <td>@item.Age</td>
+                                        <td>@item.EmailAddress</td>
+                                        <td>@item.MobileNo</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @using (Html.BeginForm("Delete", "Employee", new { id = item.Id }, FormMethod.Post))
+                                                {
+                                                    <a href="/Employee/Edit/@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                                                    @*<a href="/Department/Remove" class="btn btn-danger btn-sm">Remove</a>*@
+                                                    <input type="submit" value="Remove" class="btn btn-danger btn-sm"
+                                                           onclick="return confirm('Are you sure? This record will be permanently deleted from system.')" />
+                                                }
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th colspan="7" class="text-center">
+                                        <span class="text-danger">There is no data!</span>
+                                    </th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+

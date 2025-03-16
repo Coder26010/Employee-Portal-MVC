@@ -112,8 +112,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503090648502_InitialCreate.cs" />
+    <Compile Include="Migrations\202503090648502_InitialCreate.Designer.cs">
+      <DependentUpon>202503090648502_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503160628448_AddingEmployeeTableAndJoinWithDepartment.cs" />
+    <Compile Include="Migrations\202503160628448_AddingEmployeeTableAndJoinWithDepartment.Designer.cs">
+      <DependentUpon>202503160628448_AddingEmployeeTableAndJoinWithDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503160634330_AddingNewColumnAgeIntoEmployeeEntity.cs" />
+    <Compile Include="Migrations\202503160634330_AddingNewColumnAgeIntoEmployeeEntity.Designer.cs">
+      <DependentUpon>202503160634330_AddingNewColumnAgeIntoEmployeeEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503160654459_AddingDepartmentListForUINotMappedWithDB.cs" />
+    <Compile Include="Migrations\202503160654459_AddingDepartmentListForUINotMappedWithDB.Designer.cs">
+      <DependentUpon>202503160654459_AddingDepartmentListForUINotMappedWithDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelEntity\DepartmentEntity.cs" />
     <Compile Include="ModelEntity\EmployeeContext.cs" />
+    <Compile Include="ModelEntity\EmployeeEntity.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -127,6 +145,8 @@
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -137,6 +157,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202503090648502_InitialCreate.resx">
+      <DependentUpon>202503090648502_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503160628448_AddingEmployeeTableAndJoinWithDepartment.resx">
+      <DependentUpon>202503160628448_AddingEmployeeTableAndJoinWithDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503160634330_AddingNewColumnAgeIntoEmployeeEntity.resx">
+      <DependentUpon>202503160634330_AddingNewColumnAgeIntoEmployeeEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503160654459_AddingDepartmentListForUINotMappedWithDB.resx">
+      <DependentUpon>202503160654459_AddingDepartmentListForUINotMappedWithDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

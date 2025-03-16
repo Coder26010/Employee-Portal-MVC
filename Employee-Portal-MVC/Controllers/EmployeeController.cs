@@ -1,42 +1,60 @@
-﻿using Employee_Portal_MVC.Models;
+﻿using Employee_Portal_MVC.ModelEntity;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
-
 
 namespace Employee_Portal_MVC.Controllers
 {
-    //Controller => Employee
-    public class EmployeeController : Controller
+    public class EmployeeController : BaseController
     {
-        //Action Methods   => Employee/GetMessage
-        //Action Methods must be Public
-        //Action Methods must be non-static
-        //Action Methods can not be overloaded like a c# Method
-        //Action Methods are Http Verbs based that handle http request and response
-
-        //[HttpGet] //This is GET Http verbs that handles only GET request
-        //public string GetMessage()
-        //{
-        //    return "Hello from GetMessage Method";
-        //}
+        private readonly EmployeeContext _employeeContext;
+        public EmployeeController()
+        {
+            _employeeContext = new EmployeeContext();
+        }
 
         [HttpGet]
-        public ViewResult Create()
+        public ViewResult Index()
         {
-            return View("EmployeeCreate");
+            List<EmployeeEntity> employees = _employeeContext.Employees.ToList();
+            return View(employees);
         }
 
-        //[HttpPost]
-        //public ViewResult Create(string EmpName,string EmailAddress,string Gender)
-        //{
-        //    return View("EmployeeCreate");
-        //}
+        [HttpGet]
+        public ActionResult Create()
+        {
+            //List<DepartmentEntity> departments = _employeeContext.Departments.ToList();
+            EmployeeEntity employee = new EmployeeEntity()
+            {
+                Departments = _employeeContext.Departments.ToList()
+            };
+            return View(employee);
+        }
 
         [HttpPost]
-        public ViewResult Create(EmployeeModel model)
+        public ActionResult Create(EmployeeEntity employee)
         {
-            return View("EmployeeCreate");
-        }
+            string errorMessage = null;
+            if(_employeeContext.Employees.Any(x => x.EmailAddress == employee.EmailAddress || x.MobileNo == employee.MobileNo))
+            {
+                errorMessage = "Employee already registered with given email or mobile number.";
+            }
+            else
+            {
+                _employeeContext.Employees.Add(employee);
+                _employeeContext.SaveChanges();
+                ShowAlert(AlertType.success, "Record Added", "Record save successfully!");
+                return RedirectToAction(nameof(Index));
+            }
 
+            if(errorMessage != null)
+            {
+                ShowAlert(AlertType.warning, "Already Exists", errorMessage);
+            }
+            employee.Departments = _employeeContext.Departments.ToList();
+            return View(employee);
+        }
     }
 }

@@ -15,5 +15,8 @@ namespace Employee_Portal_MVC.ModelEntity
         public int Id { get; set; }
         public string DepartmentCode { get; set; }
         public string DepartmentName { get; set; }
+
+        //Navigation property
+        public ICollection<EmployeeEntity> Employees { get; set; } // one to many relationship
     }
 }
