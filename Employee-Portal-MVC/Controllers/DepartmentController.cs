@@ -1,6 +1,9 @@
 ﻿using Employee_Portal_MVC.ModelEntity;
+using Employee_Portal_MVC.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,15 +14,44 @@ namespace Employee_Portal_MVC.Controllers
     public class DepartmentController : BaseController
     {
         private readonly EmployeeContext _employeeContext;
+        private readonly DepartmentRepository repository;
 
         public DepartmentController()
         {
             _employeeContext = new EmployeeContext();
+            repository = new DepartmentRepository();
         }
 
         public ViewResult Index()
         {
-            var DepartmentList = _employeeContext.Departments.ToList();
+            //var DepartmentList = _employeeContext.Departments.ToList();
+
+            //List<DepartmentEntity> DepartmentList = new List<DepartmentEntity>();
+
+            //string cs =  ConfigurationManager.ConnectionStrings["EMPDB"].ConnectionString;
+            //using(SqlConnection con = new SqlConnection(cs))
+            //{
+            //    SqlCommand command = new SqlCommand("Select * from TDEPARTMENT", con);
+
+            //    con.Open();
+            //    SqlDataReader dataReader = command.ExecuteReader();
+            //    if (dataReader.HasRows)
+            //    {
+            //        while (dataReader.Read())
+            //        {
+            //            DepartmentList.Add(new DepartmentEntity()
+            //            {
+            //                Id = Convert.ToInt32(dataReader["DepartmentId"]),
+            //                DepartmentCode = dataReader["DepartmentCode"].ToString(),
+            //                DepartmentName = dataReader["DepartmentName"].ToString()
+            //            });
+            //        }
+            //    }
+
+            //}
+
+            var DepartmentList = repository.DepartmentList;
+
             return View(DepartmentList);
         }
 

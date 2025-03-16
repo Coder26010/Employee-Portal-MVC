@@ -132,6 +132,7 @@
     <Compile Include="ModelEntity\DepartmentEntity.cs" />
     <Compile Include="ModelEntity\EmployeeContext.cs" />
     <Compile Include="ModelEntity\EmployeeEntity.cs" />
+    <Compile Include="Models\DepartmentRepository.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
