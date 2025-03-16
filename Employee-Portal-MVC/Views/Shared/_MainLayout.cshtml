@@ -53,9 +53,6 @@
             var Message = @Html.Raw((TempData["Message"] != null ? TempData["Message"] : "undefine"));
         if (Message) {
             toastr[Message.Type](Message.Message, Message.Title)
-                //window.onload = function () {
-                //    alert(Message.Type + " - " + Message.Title + " - " + Message.Message);
-                //}
             }
     </script>
 
