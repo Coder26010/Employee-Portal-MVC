@@ -18,29 +18,33 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <table class="table">
                             <tr>
                                 <th>Select Department</th>
                                 <td>
-                                    @Html.DropDownListFor(x => x.DepartmentId, 
+                                    @Html.DropDownListFor(x => x.DepartmentId,
                                      Model.Departments.Select(x => new SelectListItem() //List<DepartmentEntity> => List<SelectListItem>
                                        {
                                            Text = x.DepartmentName.ToString(),
                                            Value = x.Id.ToString()
-                                       }),"Select Department")
+                                       }), "Select Department")
+
+                                    @Html.ValidationMessageFor(x => x.DepartmentId, "", new {@class = "text-danger"})
                                 </td>
                             </tr>
                             <tr>
                                 <th>Employee Full Name</th>
                                 <td>
                                     @Html.TextBoxFor(x => x.FullName)
+                                    @Html.ValidationMessageFor(x => x.FullName, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>
                                 <th>Age</th>
                                 <td>
                                     @Html.TextBoxFor(x => x.Age)
+                                    @Html.ValidationMessageFor(x => x.Age, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>
@@ -48,18 +52,28 @@
                                 <td>
                                     Male : @Html.RadioButtonFor(x => x.Gender, "M", new { group = "EmployeeGender" })
                                     Female : @Html.RadioButtonFor(x => x.Gender, "F", new { group = "EmployeeGender" })
+                                    @Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>
                                 <th>Email Address</th>
                                 <td>
                                     @Html.TextBoxFor(x => x.EmailAddress)
+                                    @Html.ValidationMessageFor(x => x.EmailAddress, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>
                                 <th>Mobile Number</th>
                                 <td>
                                     @Html.TextBoxFor(x => x.MobileNo)
+                                    @Html.ValidationMessageFor(x => x.MobileNo, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Profile Photo</th>
+                                <td>
+                                    <input type="file" name="ProfileImage" id="ProfileImage" class="form-control" required />
                                 </td>
                             </tr>
                             <tr>

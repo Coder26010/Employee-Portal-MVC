@@ -1,4 +1,4 @@
-﻿@model  Employee_Portal_MVC.ModelEntity.DepartmentEntity
+﻿@model  Employee_Portal_MVC.Models.DepartmentModel
 @*@{
         Layout = "~/Views/Shared/_MainLayout.cshtml";
     }*@
@@ -21,18 +21,20 @@
                 </div>
                 <div class="card-body">
                     <form method="post">
-                        @Html.HiddenFor(x => Model.Id)
+                        
                         <table class="table">
                             <tr>
                                 <th>Department Code</th>
                                 <td>
                                     @Html.TextBoxFor(x => x.DepartmentCode)
+                                    @Html.ValidationMessageFor(x => x.DepartmentCode, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>
                                 <th>Department Name</th>
                                 <td>
                                     @Html.TextBoxFor(x => x.DepartmentName)
+                                    @Html.ValidationMessageFor(x => x.DepartmentName, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>

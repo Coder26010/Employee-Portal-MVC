@@ -62,9 +62,12 @@ namespace Employee_Portal_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(DepartmentEntity entity)
+        public ActionResult Create(DepartmentModel entity)
         {
             string ErrorMessage = null;
+
+            if (!ModelState.IsValid)
+                return View(entity);
 
             if (_employeeContext.Departments.Any(x => x.DepartmentCode == entity.DepartmentCode))
             {
@@ -72,7 +75,12 @@ namespace Employee_Portal_MVC.Controllers
             }
             else
             {
-                _employeeContext.Departments.Add(entity);
+                _employeeContext.Departments.Add(new DepartmentEntity()
+                {
+                    Id = entity.Id,
+                    DepartmentCode = entity.DepartmentCode,
+                    DepartmentName = entity.DepartmentName
+                });
                 _employeeContext.SaveChanges();
                 ModelState.Clear();
                 string AlertMessage = "Record saved with department code " + entity.DepartmentCode + " successfully!";

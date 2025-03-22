@@ -128,10 +128,19 @@
     <Compile Include="Migrations\202503160654459_AddingDepartmentListForUINotMappedWithDB.Designer.cs">
       <DependentUpon>202503160654459_AddingDepartmentListForUINotMappedWithDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503220621123_AddingNewColumnForFilePath.cs" />
+    <Compile Include="Migrations\202503220621123_AddingNewColumnForFilePath.Designer.cs">
+      <DependentUpon>202503220621123_AddingNewColumnForFilePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503220722412_AddedConstraintOnEMployeeEntity.cs" />
+    <Compile Include="Migrations\202503220722412_AddedConstraintOnEMployeeEntity.Designer.cs">
+      <DependentUpon>202503220722412_AddedConstraintOnEMployeeEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelEntity\DepartmentEntity.cs" />
     <Compile Include="ModelEntity\EmployeeContext.cs" />
     <Compile Include="ModelEntity\EmployeeEntity.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\DepartmentRepository.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProfileImages\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503160654459_AddingDepartmentListForUINotMappedWithDB.resx">
       <DependentUpon>202503160654459_AddingDepartmentListForUINotMappedWithDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503220621123_AddingNewColumnForFilePath.resx">
+      <DependentUpon>202503220621123_AddingNewColumnForFilePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503220722412_AddedConstraintOnEMployeeEntity.resx">
+      <DependentUpon>202503220722412_AddedConstraintOnEMployeeEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
