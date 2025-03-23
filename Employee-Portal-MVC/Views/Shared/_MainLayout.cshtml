@@ -8,12 +8,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Employee Portal</title>
+    <title>Employee Portal - @ViewBag.Title</title>
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
 
-    <script src="~/Content/jquery/jquery.min.js"></script>
+    <script src="~/Content/jquery/jquery.min.js"></script> 
     <script src="~/Content/toastr/toastr.min.js"></script>
+
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
 </head>
 <body>
 
@@ -26,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Employee</a>
+                        <a class="nav-link active" aria-current="page" href="/Employee/Index">Employee</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Department/Index">Department</a>
@@ -58,6 +61,8 @@
                 //}
             }
     </script>
+
+    @RenderSection("JavaScripts",false)
 
 </body>
 </html>

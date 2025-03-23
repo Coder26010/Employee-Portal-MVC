@@ -1,4 +1,7 @@
 ﻿@model  Employee_Portal_MVC.Models.DepartmentModel
+@{
+    ViewBag.Title = "New Department";
+}
 @*@{
         Layout = "~/Views/Shared/_MainLayout.cshtml";
     }*@
@@ -21,7 +24,7 @@
                 </div>
                 <div class="card-body">
                     <form method="post">
-                        
+
                         <table class="table">
                             <tr>
                                 <th>Department Code</th>
@@ -60,4 +63,8 @@
 
 </div>
 
+@section JavaScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
 

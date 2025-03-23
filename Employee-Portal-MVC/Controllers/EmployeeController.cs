@@ -19,13 +19,28 @@ namespace Employee_Portal_MVC.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            List<EmployeeEntity> employees = _employeeContext.Employees.ToList();
+            ViewBag.Title = "Employee List"; // ViewBag is a dynamic type which is used to share the data from controller to view
+            //List<EmployeeEntity> employees = _employeeContext.Employees.ToList();
+
+            List<EmployeeEntity> employees = new List<EmployeeEntity>();
+            if (TempData["DepartmentId"] != null)
+            {
+                int DeptId = Convert.ToInt32(TempData["DepartmentId"]);
+                employees = _employeeContext.Employees.Where(x => x.DepartmentId == DeptId).ToList();
+            }
+            else
+            {
+                employees = _employeeContext.Employees.ToList();
+            }
+
+            
             return View(employees);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.Title = "New Employee";
             //List<DepartmentEntity> departments = _employeeContext.Departments.ToList();
             EmployeeEntity employee = new EmployeeEntity()
             {

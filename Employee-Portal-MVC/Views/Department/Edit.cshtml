@@ -1,5 +1,7 @@
 ﻿@model  Employee_Portal_MVC.ModelEntity.DepartmentEntity
-
+@{
+    ViewBag.Title = "Edit Department";
+}
 @*@{
         Layout = "~/Views/Shared/_MainLayout.cshtml";
     }*@
@@ -28,12 +30,16 @@
                                 <th>Department Code</th>
                                 <td>
                                     @Html.TextBoxFor(x => Model.DepartmentCode)
+                                    @Html.ValidationMessageFor(x => x.DepartmentCode, "", new { @class = "text-danger" })
+
                                 </td>
                             </tr>
                             <tr>
                                 <th>Department Name</th>
                                 <td>
                                     @Html.TextBoxFor(x => Model.DepartmentName)
+                                    @Html.ValidationMessageFor(x => x.DepartmentName, "", new { @class = "text-danger" })
+
                                 </td>
                             </tr>
                             <tr>
@@ -58,4 +64,7 @@
 
 </div>
 
-
+@section JavaScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

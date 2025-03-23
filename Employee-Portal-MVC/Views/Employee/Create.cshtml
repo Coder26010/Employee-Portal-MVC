@@ -30,7 +30,7 @@
                                            Value = x.Id.ToString()
                                        }), "Select Department")
 
-                                    @Html.ValidationMessageFor(x => x.DepartmentId, "", new {@class = "text-danger"})
+                                    @Html.ValidationMessageFor(x => x.DepartmentId, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
                             <tr>
@@ -69,7 +69,7 @@
                                     @Html.ValidationMessageFor(x => x.MobileNo, "", new { @class = "text-danger" })
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <th>Profile Photo</th>
                                 <td>
@@ -98,3 +98,8 @@
     </div>
 
 </div>
+
+@section JavaScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

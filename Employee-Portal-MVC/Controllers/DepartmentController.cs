@@ -22,6 +22,12 @@ namespace Employee_Portal_MVC.Controllers
             repository = new DepartmentRepository();
         }
 
+        public ActionResult ViewEmployee(int id)
+        {
+            TempData["DepartmentId"] = id;
+            return RedirectToAction("Index", "Employee");
+        }
+
         public ViewResult Index()
         {
             //var DepartmentList = _employeeContext.Departments.ToList();
