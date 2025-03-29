@@ -1,0 +1,61 @@
+﻿@model  Employee_Portal_MVC.ModelEntity.AppUsers
+@{
+    ViewBag.Title = "User Login";
+}
+
+<div class="container-fluid mb-5">
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Login User</h3>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex">
+                                <a href="/Account/Register" class="nav-link ms-auto">I don't have an account? Register here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+
+                        <table class="table">
+                            <tr>
+                                <th>Email ID</th>
+                                <td>
+                                    @Html.TextBoxFor(x => x.EmailAddress)
+                                    @Html.ValidationMessageFor(x => x.EmailAddress, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Password</th>
+                                <td>
+                                    @Html.TextBoxFor(x => x.Password)
+                                    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="submit" value="Login" class="btn btn-primary" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+@section JavaScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+

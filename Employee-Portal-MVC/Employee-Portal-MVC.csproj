@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -144,13 +145,19 @@
     <Compile Include="Migrations\202503220722412_AddedConstraintOnEMployeeEntity.Designer.cs">
       <DependentUpon>202503220722412_AddedConstraintOnEMployeeEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503290646305_addingAppUserTable.cs" />
+    <Compile Include="Migrations\202503290646305_addingAppUserTable.Designer.cs">
+      <DependentUpon>202503290646305_addingAppUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelEntity\AppUsers.cs" />
     <Compile Include="ModelEntity\DepartmentEntity.cs" />
     <Compile Include="ModelEntity\EmployeeContext.cs" />
     <Compile Include="ModelEntity\EmployeeEntity.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\DepartmentRepository.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\NavModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +172,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Shared\_NavigationView.cshtml" />
+    <Content Include="Views\Shared\_NotificationView.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503220722412_AddedConstraintOnEMployeeEntity.resx">
       <DependentUpon>202503220722412_AddedConstraintOnEMployeeEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503290646305_addingAppUserTable.resx">
+      <DependentUpon>202503290646305_addingAppUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

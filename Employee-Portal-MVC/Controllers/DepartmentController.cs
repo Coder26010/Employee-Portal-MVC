@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace Employee_Portal_MVC.Controllers
 {
+   // [Authorize]
     public class DepartmentController : BaseController
     {
         private readonly EmployeeContext _employeeContext;

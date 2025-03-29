@@ -14,5 +14,7 @@ namespace Employee_Portal_MVC.ModelEntity
         }
         public DbSet<DepartmentEntity> Departments { get; set; }
         public DbSet<EmployeeEntity> Employees { get; set; }
+
+        public DbSet<AppUsers> Appusers { get; set; }
     }
 }

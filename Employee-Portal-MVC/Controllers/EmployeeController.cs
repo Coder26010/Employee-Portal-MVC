@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Employee_Portal_MVC.Controllers
 {
+    //[Authorize]
     public class EmployeeController : BaseController
     {
         private readonly EmployeeContext _employeeContext;
